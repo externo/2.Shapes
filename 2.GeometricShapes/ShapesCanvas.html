@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+    <script src="Shape.js"></script>
+</head>
+<body>
+    <canvas id="container" width="500" height="400"></canvas>
+    <script>
+        var shape = new Shape(200, 300, "#FF3451");
+        console.log(shape.toString());
+
+        var rect = new Rectangle(100, 150, "#ADF456", 125, 222);
+        console.log(rect.toString());
+        rect.draw();
+        console.log(rect instanceof Shape);
+
+        var rect2 = new Shapes.Rectangle(100, 150, "#ADF456", 125, 222);
+        console.log(rect2.toString());
+        console.log(rect2 instanceof Shape);
+
+        var triangle = new Shapes.Triangle(20, 33, "#FF4522", 323, 123, 435, 66);
+        console.log(triangle.toString());
+
+        var circle = new Shapes.Circle(100, 500, "#546454", 80);
+        console.log(circle.toString());
+
+        var segment = new Shapes.Segment(500, 200, "#333333", 555, 260);
+        console.log(segment.toString());
+
+        var point = new Point(600, 300, "#FF3451");
+        console.log(point.toString());
+    </script>
+</body>
+</html>
