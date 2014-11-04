@@ -9,29 +9,30 @@
 <body>
     <canvas id="container" width="500" height="400"></canvas>
     <script>
+
+        var point = new Point(200, 60, "#777777");
+        console.log(point.draw());
+
         var shape = new Shape(200, 300, "#FF3451");
         console.log(shape.toString());
 
-        var rect = new Rectangle(100, 150, "#ADF456", 125, 222);
+        var rect = new Rectangle(100, 150, "#999456", 125, 222);
         console.log(rect.toString());
         rect.draw();
         console.log(rect instanceof Shape);
 
-        var rect2 = new Shapes.Rectangle(100, 150, "#ADF456", 125, 222);
+        var rect2 = new Shapes.Rectangle(100, 150, "#999456", 125, 222);
         console.log(rect2.toString());
         console.log(rect2 instanceof Shape);
 
-        var triangle = new Shapes.Triangle(20, 33, "#FF4522", 323, 123, 435, 66);
-        console.log(triangle.toString());
+        var triangle = new Shapes.Triangle(20, 33, "#AA5599", 23, 123, 88, 66);
+        console.log(triangle.draw());
 
-        var circle = new Shapes.Circle(100, 500, "#546454", 80);
-        console.log(circle.toString());
+        var circle = new Shapes.Circle(400, 200, "#444444", 80);
+        console.log(circle.draw());
 
         var segment = new Shapes.Segment(500, 200, "#333333", 555, 260);
-        console.log(segment.toString());
-
-        var point = new Point(600, 300, "#FF3451");
-        console.log(point.toString());
+        console.log(segment.draw());
     </script>
 </body>
 </html>

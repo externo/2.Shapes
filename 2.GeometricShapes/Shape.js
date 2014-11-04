@@ -52,6 +52,8 @@ var Shape = (function () {
             var canvas = {
                 element: document.getElementById("container").getContext("2d")
             };
+            
+            canvas.element.fillStyle = this.serialize().Color;     
             return canvas;
         }
     };
@@ -146,10 +148,12 @@ var Triangle = (function () {
         return result;
     };
     Triangle.prototype.draw = function () {
-        var result = {
-            element: document.getElementById("shapesContainer").getContext("2d")
-        };
-        return result;
+        this.canvas().element.beginPath();
+        this.canvas().element.moveTo(this.serialize().X, this.serialize().Y);
+        this.canvas().element.lineTo(this.serialize().x2, this.serialize().y2);
+        this.canvas().element.lineTo(this.serialize().x3, this.serialize().y3);
+        this.canvas().element.closePath();
+        this.canvas().element.fill();
     };
     Triangle.prototype.toString = function () {
         return JSON.stringify(this.serialize());
@@ -191,10 +195,9 @@ var Circle = (function () {
         return result;
     };
     Circle.prototype.draw = function () {
-        var result = {
-            element: document.getElementById("shapesContainer").getContext("2d")
-        };
-        return result;
+        this.canvas().element.beginPath();
+        this.canvas().element.arc(this.serialize().X, this.serialize().Y, this.serialize().radius, 0, 2 * Math.PI);
+        this.canvas().element.fill();
     };
     Circle.prototype.toString = function () {
         return JSON.stringify(this.serialize());
@@ -270,10 +273,9 @@ var Point = (function () {
         return result;
     };
     Point.prototype.draw = function () {
-        var result = {
-            element: document.getElementById("shapesContainer").getContext("2d")
-        };
-        return result;
+        this.canvas().element.beginPath();
+        this.canvas().element.arc(this.serialize().X, this.serialize().Y, 2, 0, 2 * Math.PI);
+        this.canvas().element.fill();
     };
     Point.prototype.toString = function () {
         return JSON.stringify(this.serialize());
@@ -315,8 +317,8 @@ console.log(rect2 instanceof Shape);
 var triangle = new Shapes.Triangle(20, 33, "#FF4522", 323, 123, 435, 66);
 console.log(triangle.toString());
 
-var circle = new Shapes.Circle(100, 500, "#546454", 80);
-console.log(circle.toString());
+var circle = new Shapes.Circle(100, 200, "#546454", 30);
+circle.draw();
 
 var segment = new Shapes.Segment(500, 200, "#333333", 555, 260);
 console.log(segment.toString());
