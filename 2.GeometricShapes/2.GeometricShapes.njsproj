@@ -5,7 +5,7 @@
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
     <Name>2.GeometricShapes</Name>
     <RootNamespace>2.GeometricShapes</RootNamespace>
-    <NodeExePath>F:\VisualStudio\JavaScript\node.exe</NodeExePath>
+    <NodeExePath>E:\Visual Studio\node.exe</NodeExePath>
   </PropertyGroup>
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
