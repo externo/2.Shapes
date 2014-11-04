@@ -48,11 +48,11 @@ var Shape = (function () {
             };
             return serializedShape;
         },
-        draw: function (){
-            var result = {
-                element: document.getElementById("shapesContainer").getContext("2d")
-            };            
-            return result;
+        canvas: function () {
+            var canvas = {
+                element: document.getElementById("container").getContext("2d")
+            };
+            return canvas;
         }
     };
     Shape.prototype.toString = function () {
@@ -95,10 +95,9 @@ var Rectangle = (function () {
         return result;
     };
     Rectangle.prototype.draw = function () {
-        var result = {
-            element: document.getElementById("shapesContainer").getContext("2d")
-        };
-        return result;
+        this.canvas().element.beginPath();
+        this.canvas().element.fillStyle = this._color;
+        this.canvas().element.fillRect(this._x, this._y, this._width, this._height);
     };
     Rectangle.prototype.toString = function () {
         return JSON.stringify(this.serialize());
@@ -303,9 +302,10 @@ var Shapes = {
 
 var shape = new Shape(200, 300, "#FF3451");
 console.log(shape.toString());
+
 var rect = new Rectangle(100, 150, "#ADF456", 125, 222);
 console.log(rect.toString());
-rect._height = 55;
+rect.draw();
 console.log(rect instanceof Shape);
 
 var rect2 = new Shapes.Rectangle(100, 150, "#ADF456", 125, 222);

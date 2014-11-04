@@ -36,6 +36,7 @@
     <Compile Include="Shape.js" />
     <Content Include="package.json" />
     <Content Include="README.md" />
+    <Content Include="ShapesCanvas.html" />
   </ItemGroup>
   <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsTools.targets" />
 </Project>
